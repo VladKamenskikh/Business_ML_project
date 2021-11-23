@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  model_api:
+    build: .
+    container_name: model_api
+    command: python3 app/run_server.py
+    restart: unless-stopped
+    environment:
+      FLASK_SERVER_PORT: 8180
+    ports:
+     - "8180:8180"
+    volumes:
+      - ./models:/opt/app/models
